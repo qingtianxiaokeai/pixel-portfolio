@@ -1,0 +1,106 @@
+:root {
+    --bg-night: #0B0D17;
+    --fire-orange: #FF8C31;
+    --fire-yellow: #FFD700;
+    --text-primary: #E0E0E0;
+    --pixel-size: 4px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-night);
+    color: var(--text-primary);
+    font-family: 'VT323', monospace;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.pixel-scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #0B0D17 0%, #1A1C2C 100%);
+}
+
+.stars-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+    background-size: 550px 550px, 350px 350px;
+    background-position: 0 0, 40px 60px;
+    animation: twinkle 5s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+.campfire-flame {
+    width: calc(var(--pixel-size) * 10);
+    height: calc(var(--pixel-size) * 12);
+    background: var(--fire-orange);
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: flicker 0.2s infinite steps(3);
+    box-shadow: 0 0 40px var(--fire-orange);
+}
+
+@keyframes flicker {
+    0% { height: calc(var(--pixel-size) * 12); transform: translateX(-50%) scaleX(1); }
+    50% { height: calc(var(--pixel-size) * 14); transform: translateX(-50%) scaleX(1.1); background: var(--fire-yellow); }
+    100% { height: calc(var(--pixel-size) * 11); transform: translateX(-50%) scaleX(0.9); }
+}
+
+.dialogue-box {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 4px solid #fff;
+    padding: 20px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.hidden { display: none; }
+
+.game-menu {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #fff;
+    padding: 15px;
+}
+
+.game-menu ul { list-style: none; }
+.game-menu li {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.game-menu li span { visibility: hidden; margin-right: 10px; }
+.game-menu li:hover span { visibility: visible; }

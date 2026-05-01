@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Pixel Portfolio | AI训练师 • 游戏爱好者 • 摄影师</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-canvas" class="pixel-scene">
+        <div class="stars-layer"></div>
+        <div class="forest-bg"></div>
+        <div class="cabin" onclick="interact('cabin')"></div>
+        <div class="campfire-container" onclick="interact('fire')">
+            <div class="campfire-light"></div>
+            <div class="campfire-flame"></div>
+        </div>
+        <div class="avatar" onclick="interact('avatar')"></div>
+        <nav class="game-menu">
+            <ul>
+                <li onclick="interact('cabin')"><span>></span> 个人介绍</li>
+                <li onclick="interact('fire')"><span>></span> AI 作品集</li>
+                <li onclick="interact('forest')"><span>></span> 摄影画廊</li>
+                <li onclick="interact('avatar')"><span>></span> 我的游戏</li>
+            </ul>
+        </nav>
+        <div id="dialogue-box" class="dialogue-box hidden">
+            <div class="dialogue-content">
+                <p id="dialogue-text"></p>
+            </div>
+            <div class="dialogue-footer">点击继续...</div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
