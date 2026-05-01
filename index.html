@@ -3,37 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPG Pixel Portfolio | AI训练师 • 游戏爱好者 • 摄影师</title>
+    <title>青天的小屋 · 日常分享</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@200;300;400;500&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="game-canvas" class="pixel-scene">
-        <div class="stars-layer"></div>
-        <div class="forest-bg"></div>
-        <div class="cabin" onclick="interact('cabin')"></div>
-        <div class="campfire-container" onclick="interact('fire')">
-            <div class="campfire-light"></div>
-            <div class="campfire-flame"></div>
-        </div>
-        <div class="avatar" onclick="interact('avatar')"></div>
-        <nav class="game-menu">
-            <ul>
-                <li onclick="interact('cabin')"><span>></span> 个人介绍</li>
-                <li onclick="interact('fire')"><span>></span> AI 作品集</li>
-                <li onclick="interact('forest')"><span>></span> 摄影画廊</li>
-                <li onclick="interact('avatar')"><span>></span> 我的游戏</li>
-            </ul>
-        </nav>
-        <div id="dialogue-box" class="dialogue-box hidden">
-            <div class="dialogue-content">
-                <p id="dialogue-text"></p>
+
+    <!-- 加载动画 -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-sun">
+            <div class="sun-face">
+                <div class="sun-eye eye-l"></div>
+                <div class="sun-eye eye-r"></div>
+                <div class="sun-mouth"></div>
             </div>
-            <div class="dialogue-footer">点击继续...</div>
+            <div class="sun-ray r1"></div>
+            <div class="sun-ray r2"></div>
+            <div class="sun-ray r3"></div>
+            <div class="sun-ray r4"></div>
+            <div class="sun-ray r5"></div>
+            <div class="sun-ray r6"></div>
+            <div class="sun-ray r7"></div>
+            <div class="sun-ray r8"></div>
+        </div>
+        <div class="preloader-cloud c1"></div>
+        <div class="preloader-cloud c2"></div>
+        <p class="preloader-text">加载中<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></p>
+    </div>
+
+    <!-- 背景 -->
+    <img class="page-bg" src="images/3aa46f5701fc6ed92234ea0a9f86e2cd.gif" alt="">
+    <div class="page-overlay"></div>
+
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo">青天的小屋</a>
+            <ul class="nav-links">
+                <li><a href="#story">故事</a></li>
+                <li><a href="#selection">精选</a></li>
+                <li><a href="#portfolio">作品</a></li>
+                <li><a href="#gallery">相册</a></li>
+                <li><a href="#blog">博客</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-label">舒适的生活</p>
+            <h1 class="hero-title">
+                <span class="hero-name">青天的小屋</span>
+            </h1>
+            <p class="hero-desc">在每一天的生活中，发现微小而确实的美好。</p>
+        </div>
+    </section>
+
+    <!-- Story -->
+    <section id="story" class="story">
+        <div class="container">
+            <span class="section-num">01</span>
+            <h2 class="section-title">故事</h2>
+            <div class="story-layout">
+                <div class="story-image">
+                    <div class="circle-img">
+                        <img src="images/ba5585814c8afe949d10e248d6f07df5.jpg" alt="暮らし">
+                    </div>
+                </div>
+                <div class="story-text">
+                    <p class="story-lead">在日常之中，<br>发现那微小而确实的美好。</p>
+                    <div class="dotted-divider"></div>
+                    <p class="story-body">这里记录着一个学生日常生活中的小小发现——好用的器物、温暖的瞬间、让人安心的习惯。在忙碌的日子里，寻找那些让心变得柔软的事物。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selection -->
+    <section id="selection" class="selection">
+        <div class="container">
+            <span class="section-num">01</span>
+            <h2 class="section-title">精选</h2>
+            <div class="selection-grid">
+                <div class="selection-item">
+                    <div class="selection-img">
+                        <img src="images/ba5585814c8afe949d10e248d6f07df5.jpg" alt="01">
+                    </div>
+                    <p class="selection-label">生活</p>
+                </div>
+                <div class="selection-item">
+                    <div class="selection-img">
+                        <img src="images/c1aaf470cec4f02001325e9881ab44fc.jpg" alt="02">
+                    </div>
+                    <p class="selection-label">风景</p>
+                </div>
+                <div class="selection-item">
+                    <div class="selection-img">
+                        <img src="images/62fbd4896ac0556d18c6f78f117269ad.jpg" alt="03">
+                    </div>
+                    <p class="selection-label">好物</p>
+                </div>
+                <div class="selection-item">
+                    <div class="selection-img">
+                        <img src="images/e91057f28d7735e505381f424f31d117.jpg" alt="04">
+                    </div>
+                    <p class="selection-label">日常</p>
+                </div>
+                <div class="selection-item">
+                    <div class="selection-img">
+                        <img src="images/fa66a4e45444c9ad9c9c4d1bc61fbfef.jpg" alt="05">
+                    </div>
+                    <p class="selection-label">旅行</p>
+                </div>
+                <div class="selection-item">
+                    <div class="selection-img">
+                        <img src="images/下载(1).jpg" alt="06">
+                    </div>
+                    <p class="selection-label">宁静</p>
+                </div>
+            </div>
+            <!-- 分页器 -->
+            <div class="pagination">
+                <span class="page-dot active"></span>
+                <span class="page-dot"></span>
+                <span class="page-dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <span class="section-num">02</span>
+            <h2 class="section-title">作品集</h2>
+            <p class="portfolio-message">作品筹备中，敬请期待</p>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <span class="section-num">02</span>
+            <h2 class="section-title">相册</h2>
+            <div class="gallery-scroll" id="gallery-scroll">
+                <div class="gallery-scroll-track" id="gallery-scroll-track"></div>
+            </div>
+            <div class="gallery-scroll-controls">
+                <button class="carousel-btn" id="gallery-scroll-play">⏸</button>
+                <button class="carousel-btn" id="gallery-scroll-edit">管理相册</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 管理相册弹窗 -->
+    <div id="gallery-modal" class="blog-modal">
+        <div class="blog-modal-content">
+            <span class="blog-modal-close" id="gallery-modal-close">&times;</span>
+            <h3 class="blog-modal-title">管理相册</h3>
+            <div class="gallery-manage-list" id="gallery-manage-list"></div>
+            <div class="gallery-add-row">
+                <input id="gallery-add-input" class="blog-input" type="text" placeholder="输入图片URL">
+                <button id="gallery-add-btn" class="blog-save-btn" style="width:auto;padding:0.8rem 1.5rem;flex-shrink:0;">添加</button>
+            </div>
+            <div class="gallery-add-row" style="margin-top:0.5rem;">
+                <input id="gallery-upload-input" class="blog-input" type="file" accept="image/*" style="padding:0.6rem 0.5rem;flex:1;">
+                <button id="gallery-upload-btn" class="blog-save-btn" style="width:auto;padding:0.8rem 1.5rem;flex-shrink:0;">上传</button>
+            </div>
+            <p class="gallery-hint">支持网络图片链接、本地文件上传，或 images/ 目录下的文件名</p>
         </div>
     </div>
+
+    <!-- Blog -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <span class="section-num">03</span>
+            <h2 class="section-title">博客</h2>
+            <div id="blog-list" class="blog-list">
+                <!-- JS动态渲染 -->
+            </div>
+            <button id="blog-add-btn" class="blog-add-btn">＋ 写新文章</button>
+
+            <!-- 写文章弹窗 -->
+            <div id="blog-modal" class="blog-modal">
+                <div class="blog-modal-content">
+                    <span class="blog-modal-close">&times;</span>
+                    <h3 class="blog-modal-title">写新文章</h3>
+                    <input id="blog-input-date" class="blog-input" type="text" placeholder="日期 (如 2025.04.25)">
+                    <input id="blog-input-title" class="blog-input" type="text" placeholder="标题">
+                    <textarea id="blog-input-content" class="blog-textarea" placeholder="正文内容..." rows="5"></textarea>
+                    <button id="blog-save-btn" class="blog-save-btn">发布</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <span class="section-num">04</span>
+            <h2 class="section-title">联系</h2>
+            <p class="contact-text">如有任何问题，欢迎随时联系我。</p>
+            <a href="mailto:171871446@qq.com" class="contact-email">171871446@qq.com</a>
+            <div class="social-links">
+                <a href="https://www.douyin.com/user/40298850025" target="_blank" class="social-link">抖音</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <span class="footer-logo">青天的小屋</span>
+            <p class="footer-text">&copy; 2024</p>
+        </div>
+    </footer>
+
     <script src="main.js"></script>
 </body>
 </html>
